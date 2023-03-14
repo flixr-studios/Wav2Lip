@@ -89,7 +89,7 @@ def face_detect(images):
 	for i, (rect, image) in enumerate(zip(predictions, images)):
 		print('Processing frame: {}'.format(i), end='\r')
 		if rect is None:
-			print('Failed frame: {}'.format(i), end='\r')
+			print('Failed frame: {} out of {}'.format(i, len(images)), end='\r')
 			cv2.imwrite('temp/faulty_frame.jpg', image) # check this frame where the face was not detected.
 			raise ValueError('Face not detected! Ensure the video contains a face in all the frames.')
 
